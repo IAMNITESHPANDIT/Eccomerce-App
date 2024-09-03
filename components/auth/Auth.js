@@ -37,7 +37,6 @@ const Auth = () => {
   const redirectText = uiTextHandler(authIdentifier);
 
   const authHandler = async () => {
-
     const errorMessage = validateForm(formData, isLogin);
 
     if (errorMessage) {
@@ -49,7 +48,8 @@ const Auth = () => {
     
     try {
       if (isLogin) {
-        await dispatch(loginUser({ email, password }));
+       const response= await dispatch(loginUser({ email, password }));
+       console.log("response: ",response);
       } else {
         await dispatch(signupUser({ email, password, phoneNumber, name }));
       }
@@ -121,7 +121,7 @@ const Auth = () => {
           />
 
           <View style={styles.buttonContainer}>
-            <Button onPress={authHandler} style={styles.button}>
+            <Button onPress={()=>authHandler()} style={styles.button}>
               {buttonText}
             </Button>
           </View>

@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
     },
     button: {
       width: 100,
+      // backgroundColor: 'rgba(52, 52, 52, 0.8)'
     },
     accountSection: {
       marginTop: 20,

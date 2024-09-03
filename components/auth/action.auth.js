@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import  {apiRequest} from '../../utils/service/network.js';
-
 import { setLocalStorage } from '../../utils/storage';
+
+import { apiRequest } from '../../utils/service/network';
 
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
@@ -15,7 +15,9 @@ export const loginUser = createAsyncThunk(
 
       const { token } = data;
 
-      await setLocalStorage('accessToken', token)
+      console.log("token", token);
+
+      await setLocalStorage('accessToken', token);
 
       await setLocalStorage('userData',  JSON.stringify(data))
 

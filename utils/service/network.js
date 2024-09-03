@@ -34,7 +34,7 @@ apiClient.interceptors.response.use(
         const response = await axios.post(network.baseURL, { token: refreshToken });
         const newAccessToken = response.data.accessToken;
 
-        await setLocalStorage('accessToken', newAccessToken);
+        // await setLocalStorage('accessToken', newAccessToken);
         apiClient.defaults.headers['Authorization'] = `Bearer ${newAccessToken}`;
         originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
 
@@ -49,7 +49,7 @@ apiClient.interceptors.response.use(
 );
 
 
-export const ç = async (method, url, data = null, params = null) => {
+export const apiRequest = async (method, url, data = null, params = null) => {
   try {
     const response = await apiClient({
       method: method,
